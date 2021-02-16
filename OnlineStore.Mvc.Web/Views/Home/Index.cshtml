@@ -1,0 +1,47 @@
+﻿@model OnlineStore.Core.ViewModels.ProductListView
+@{
+    ViewBag.Title = "Home Page";
+}
+
+    <div class="bg-success" style="margin:10px">
+        <img style="width:100%;height:450px;" src="~/Content/ProductImages/2c8204e52f9d637c7f7910c03e1e36fb-1024x631.jpeg" />
+    </div>
+    <div class="container body-content" style="background-color:white">
+        <h1 align="center" style="color: darkslategrey;font-weight:bolder">PRODUCT</h1>
+        <hr />
+        <br />
+        <div class="col-md-2">
+            <h style="font-weight:bolder;font-size:14px;color:darkcyan">Filter By Category</h>
+            <hr />
+            <div class="list-group">
+                @Html.ActionLink("All", "Index", null, new { @class = Request["Category"] == null ? "list-group-item active" : "list-group-item" })
+                @foreach (var category in Model.ProductCategories)
+                {
+                    @Html.ActionLink(category.Category, "Index", new { Category = category.Category }, new { @class = Request["Category"] == category.Category ? "list-group-item active" : "list-group-item" })
+                }
+            </div>
+        </div>
+        <div class="col-md-10">
+            @foreach (var item in Model.Products)
+            {
+                <div class="col-md-4" style="height:450px;padding:10px;margin:10px;border:solid thin;border-color:whitesmoke;">
+                    <div class="col-md-12">
+                        <img class="img" style="height:250px;width:200px" src="~/Content/ProductImages/@item.Image" />
+                    </div>
+                    <div class="col-md-12">
+                        <strong>@Html.ActionLink(item.Name, "Details", new { id = item.Id })</strong>
+                    </div>
+                    <div class="col-md-12">
+                        <p>@item.Description</p>
+                    </div>
+                    <div class="col-md-12">
+                        <h4>@item.Price</h4>
+                    </div>
+                    <div class="col-md-12">
+                        <a href="@Url.Action("AddToBusket","Busket",new { id = item.Id})" class="btn btn-default">Add To Busket</a>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-md-12 clearfix" />
+    </div>

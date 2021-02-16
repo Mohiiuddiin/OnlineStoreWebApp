@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{462AA931-D9E7-4B8A-840B-C8026F2C0FC0}</ProjectGuid>
+    <ProjectGuid>{7AC929FE-263B-420B-9C2E-5A611590AE25}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MyShop.Services</RootNamespace>
-    <AssemblyName>MyShop.Services</AssemblyName>
+    <RootNamespace>OnlineStore.BLL</RootNamespace>
+    <AssemblyName>OnlineStore.BLL</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,17 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasketManager.cs" />
-    <Compile Include="OrderManager.cs" />
+    <Compile Include="BusketManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyShop.Core\OnlineStore.Core.csproj">
-      <Project>{9b029460-6f4e-46ae-9b88-08c5fe08c0a4}</Project>
+    <ProjectReference Include="..\ClassLibrary1\OnlineStore.Core.csproj">
+      <Project>{844e0082-310b-4fcc-8070-893270db81b6}</Project>
       <Name>OnlineStore.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OnlineStore.DAL\OnlineStore.DAL.csproj">
-      <Project>{71042bee-a626-462a-b76f-8cb8e9b205c0}</Project>
+    <ProjectReference Include="..\OnlineStore.Gateway\OnlineStore.DAL.csproj">
+      <Project>{7f4d5670-c847-41b3-8526-60d4ed8df962}</Project>
       <Name>OnlineStore.DAL</Name>
     </ProjectReference>
   </ItemGroup>
