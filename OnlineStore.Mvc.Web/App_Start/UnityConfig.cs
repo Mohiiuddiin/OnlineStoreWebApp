@@ -46,10 +46,11 @@ namespace OnlineStore.Mvc.Web
 
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
-            container.RegisterType<Core.Contracts.IRepository<Product>, SQLRepository<Product>>();
-            container.RegisterType<Core.Contracts.IRepository<ProductCategory>, SQLRepository<ProductCategory>>();
-            container.RegisterType<Core.Contracts.IRepository<Busket>, SQLRepository<Busket>>();
-            container.RegisterType<Core.Contracts.IRepository<BusketItem>, SQLRepository<BusketItem>>();
+            container.RegisterType<IRepository<Product>, SQLRepository<Product>>();
+            container.RegisterType<IRepository<ProductCategory>, SQLRepository<ProductCategory>>();
+            container.RegisterType<IRepository<Busket>, SQLRepository<Busket>>();
+            container.RegisterType<IRepository<BusketItem>, SQLRepository<BusketItem>>();
+            container.RegisterType<IRepository<Customer>, SQLRepository<Customer>>();
             container.RegisterType<IBusketManager, BusketManager>();
         }
     }

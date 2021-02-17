@@ -15,6 +15,7 @@ namespace OnlineStore.DAL.Gateway
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Busket> Buskets { get; set; }
         public DbSet<BusketItem> BusketiItems { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         
     }
