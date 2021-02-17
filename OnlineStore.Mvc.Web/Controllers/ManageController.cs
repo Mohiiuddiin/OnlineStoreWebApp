@@ -18,13 +18,7 @@ namespace OnlineStore.Mvc.Web.Controllers
 
         public ManageController()
         {
-        }
-
-        public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
-        {
-            UserManager = userManager;
-            SignInManager = signInManager;
-        }
+        }       
 
         public ApplicationSignInManager SignInManager
         {
