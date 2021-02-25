@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A4FAD414-818C-4386-8582-5CDC3616F8DB}</ProjectGuid>
+    <ProjectGuid>{7DFFC885-CC31-4977-9CAB-706D423A58AD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OnlineStore.Core</RootNamespace>
@@ -32,7 +32,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,12 +43,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Contracts\IBusketManager.cs" />
+    <Compile Include="Contracts\IOrderManager.cs" />
+    <Compile Include="Contracts\IRepository.cs" />
+    <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\Busket.cs" />
+    <Compile Include="Models\BusketItem.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
+    <Compile Include="ViewModels\BusketItemView.cs" />
+    <Compile Include="ViewModels\BusketSummaryView.cs" />
+    <Compile Include="ViewModels\ProductListView.cs" />
+    <Compile Include="ViewModels\ProductView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

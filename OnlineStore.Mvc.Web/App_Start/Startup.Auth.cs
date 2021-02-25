@@ -58,11 +58,11 @@ namespace OnlineStore.Mvc.Web
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "914518698926-1m1gu9ssmrsfmgqedccn4acgfnul22up.apps.googleusercontent.com",
+                ClientSecret = "q5jfaa85PZh8InZxHPHrZdGG"
+            });
         }
     }
 }

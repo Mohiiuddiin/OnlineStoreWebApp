@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace OnlineStore.Mvc.Web.Controllers
 {
+    [RequireHttps]
     public class HomeController : Controller
     {
         IRepository<Product> context;

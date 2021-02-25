@@ -22,7 +22,7 @@ namespace OnlineStore.BLL
             this.busketContext = busketContext;
         }
 
-        private Busket GetBusket(HttpContextBase httpContext,bool createIfNull)
+        private Busket GetBusket(HttpContextBase httpContext, bool createIfNull)
         {
             HttpCookie cookie = httpContext.Request.Cookies.Get(BusketSessionName);
             Busket busket = new Busket();
@@ -65,10 +65,16 @@ namespace OnlineStore.BLL
             return busket;
         }
 
-        public void AddBusket(HttpContextBase httpContext,string productId)
+        public void AddBusket(HttpContextBase httpContext, string productId)
         {
-            Busket busket = GetBusket(httpContext,true);
+            
+            Busket busket = GetBusket(httpContext, true);
+            if (busket == null) {
+                busket = new Busket();                
+            }
+            
             BusketItem busketItem = busket.BusketItems.FirstOrDefault(x => x.ProductId == productId);
+            
             if (busketItem == null)
             {
                 busketItem = new BusketItem()
@@ -86,16 +92,16 @@ namespace OnlineStore.BLL
             busketContext.Commit();
         }
 
-        public void RemoveBusket(HttpContextBase httpContext,string itemId)
+        public void RemoveBusket(HttpContextBase httpContext, string itemId)
         {
             Busket busket = GetBusket(httpContext, true);
             BusketItem busketItem = busket.BusketItems.FirstOrDefault(x => x.BusketId == itemId);
             if (busketItem != null)
             {
                 busket.BusketItems.Remove(busketItem);
-                busketContext.Commit();                
-            }           
-            
+                busketContext.Commit();
+            }
+
         }
         public List<BusketItemView> GetBusketItems(HttpContextBase httpContextBase)
         {
@@ -120,19 +126,21 @@ namespace OnlineStore.BLL
             {
                 return new List<BusketItemView>();
             }
-            
-        } 
+
+        }
 
         public BusketSummaryView GetBusketSummary(HttpContextBase httpContextBase)
         {
             Busket busket = GetBusket(httpContextBase, false);
-            BusketSummaryView busketSummaryView = new BusketSummaryView(0,0);
+            BusketSummaryView busketSummaryView = new BusketSummaryView(0, 0);
 
-            if (busket != null )
+            if (busket != null)
             {
                 int? busketCount = (from item in busket.BusketItems select item.Quantity).Sum();
-                decimal? busketTotal = (from item in busket.BusketItems join p in productContext.Collection()
-                                        on item.ProductId equals p.Id select item.Quantity*p.Price).Sum();
+                decimal? busketTotal = (from item in busket.BusketItems
+                                        join p in productContext.Collection()
+        on item.ProductId equals p.Id
+                                        select item.Quantity * p.Price).Sum();
 
                 busketSummaryView.BusketCount = busketCount ?? 0;
                 busketSummaryView.BusketTotal = busketTotal ?? decimal.Zero;
@@ -144,6 +152,15 @@ namespace OnlineStore.BLL
                 return busketSummaryView;
             }
         }
+        public void ClearBusket(HttpContextBase httpContextBase)
+        {
+            Busket busket = GetBusket(httpContextBase, false);
+            if(busket != null)
+            {
+                busket.BusketItems.Clear();
+                busketContext.Commit();
+            }
+        }    
 
 
     }

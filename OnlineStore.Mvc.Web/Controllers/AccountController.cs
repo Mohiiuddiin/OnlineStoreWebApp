@@ -21,8 +21,8 @@ namespace OnlineStore.Mvc.Web.Controllers
         private ApplicationUserManager _userManager;
         private IRepository<Customer> customerRepository;
 
-        public AccountController(IRepository<Customer> customerRepository )
-        {            
+        public AccountController(IRepository<Customer> customerRepository)
+        {
             this.customerRepository = customerRepository;
         }
 
@@ -153,7 +153,8 @@ namespace OnlineStore.Mvc.Web.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    //registering the customer model
+                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    //register customer model
                     Customer customer = new Customer()
                     {
                         FirstName = model.FirstName,
@@ -166,9 +167,6 @@ namespace OnlineStore.Mvc.Web.Controllers
                     };
                     customerRepository.Insert(customer);
                     customerRepository.Commit();
-
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -379,7 +377,17 @@ namespace OnlineStore.Mvc.Web.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email
+                    //City = model.City,
+                    //FirstName = model.FirstName,
+                    //LastName = model.LastName,
+                    //State = model.State,
+                    //ZipCode = model.ZipCode
+
+                };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
@@ -387,6 +395,18 @@ namespace OnlineStore.Mvc.Web.Controllers
                     if (result.Succeeded)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        Customer customer = new Customer()
+                        {
+                            FirstName = model.FirstName,
+                            LastName = model.LastName,
+                            Email = model.Email,
+                            City = model.City,
+                            State = model.State,
+                            ZipCode = model.ZipCode,
+                            UserId = user.Id
+                        };
+                        customerRepository.Insert(customer);
+                        customerRepository.Commit();
                         return RedirectToLocal(returnUrl);
                     }
                 }

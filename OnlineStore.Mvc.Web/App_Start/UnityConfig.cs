@@ -1,10 +1,10 @@
+using OnlineStore.BLL;
+using OnlineStore.Core.Contracts;
 using OnlineStore.Core.Models;
 using OnlineStore.DAL.Gateway;
-using OnlineStore.BLL;
 using System;
 
 using Unity;
-using OnlineStore.Core.Contracts;
 
 namespace OnlineStore.Mvc.Web
 {
@@ -51,7 +51,10 @@ namespace OnlineStore.Mvc.Web
             container.RegisterType<IRepository<Busket>, SQLRepository<Busket>>();
             container.RegisterType<IRepository<BusketItem>, SQLRepository<BusketItem>>();
             container.RegisterType<IRepository<Customer>, SQLRepository<Customer>>();
+            container.RegisterType<IRepository<Order>, SQLRepository<Order>>();
+
             container.RegisterType<IBusketManager, BusketManager>();
+            container.RegisterType<IOrderManager, OrderManager>();
         }
     }
 }

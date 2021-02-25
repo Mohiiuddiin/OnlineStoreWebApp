@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7AC929FE-263B-420B-9C2E-5A611590AE25}</ProjectGuid>
+    <ProjectGuid>{4F529DBE-29C2-4EB5-BEF4-F6FAC8619EF1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OnlineStore.BLL</RootNamespace>
@@ -43,16 +43,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusketManager.cs" />
+    <Compile Include="OrderManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\OnlineStore.Core.csproj">
-      <Project>{844e0082-310b-4fcc-8070-893270db81b6}</Project>
+    <ProjectReference Include="..\OnlineStore.Core\OnlineStore.Core.csproj">
+      <Project>{7dffc885-cc31-4977-9cab-706d423a58ad}</Project>
       <Name>OnlineStore.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OnlineStore.Gateway\OnlineStore.DAL.csproj">
-      <Project>{7f4d5670-c847-41b3-8526-60d4ed8df962}</Project>
-      <Name>OnlineStore.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
