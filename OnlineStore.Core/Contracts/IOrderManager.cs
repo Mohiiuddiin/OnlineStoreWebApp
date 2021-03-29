@@ -10,6 +10,10 @@ namespace OnlineStore.Core.Contracts
 {
     public interface IOrderManager
     {
-        void CreateOrder(Order order,List<BusketItemView> busketItems);
+        void CreateOrder(Order order, List<BusketItemView> busketItems);
+        List<Order> GetOrderList();
+        Order GetOrder(string Id);
+        void UpdateOrder(Order updatedOrder);
+
     }
 }

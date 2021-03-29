@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body style="background-color:black">
+<body style="background-color:">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -22,8 +22,11 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Product Manager", "Index", "ProductManager")</li>
-                    <li>@Html.ActionLink("Product Category Manager", "Index", "ProductCategoryManager")</li>
+                    @if(Request.IsAuthenticated && User.IsInRole("Admin")) { 
+                    <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
+                    }
+                    @*<li>@Html.ActionLink("Product Manager", "Index", "ProductManager")</li>
+                    <li>@Html.ActionLink("Product Category Manager", "Index", "ProductCategoryManager")</li>*@
                 </ul>
                 @Html.Partial("_LoginPartial")
                 @{ 

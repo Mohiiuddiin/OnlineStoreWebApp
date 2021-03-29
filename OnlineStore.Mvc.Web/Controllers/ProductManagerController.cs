@@ -9,7 +9,7 @@ using System.IO;
 
 namespace OnlineStore.WebUI.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class ProductManagerController : Controller
     {
         IRepository<Product> context;

@@ -1,0 +1,9 @@
+C:\Users\user\Source\Repos\OnlineStoreWebApp\OnlineStore.BLL\obj\Debug\OnlineStore.BLL.csproj.CoreCompileInputs.cache
+C:\Users\user\Source\Repos\OnlineStoreWebApp\OnlineStore.BLL\bin\Debug\OnlineStore.BLL.dll
+C:\Users\user\Source\Repos\OnlineStoreWebApp\OnlineStore.BLL\bin\Debug\OnlineStore.BLL.pdb
+C:\Users\user\Source\Repos\OnlineStoreWebApp\OnlineStore.BLL\obj\Debug\OnlineStore.BLL.csprojAssemblyReference.cache
+C:\Users\user\Source\Repos\OnlineStoreWebApp\OnlineStore.BLL\obj\Debug\OnlineStore.BLL.csproj.CopyComplete
+C:\Users\user\Source\Repos\OnlineStoreWebApp\OnlineStore.BLL\obj\Debug\OnlineStore.BLL.dll
+C:\Users\user\Source\Repos\OnlineStoreWebApp\OnlineStore.BLL\obj\Debug\OnlineStore.BLL.pdb
+C:\Users\user\Source\Repos\OnlineStoreWebApp\OnlineStore.BLL\bin\Debug\OnlineStore.Core.dll
+C:\Users\user\Source\Repos\OnlineStoreWebApp\OnlineStore.BLL\bin\Debug\OnlineStore.Core.pdb

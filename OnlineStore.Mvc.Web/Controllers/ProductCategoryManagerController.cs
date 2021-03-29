@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace OnlineStore.WebUI.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class ProductCategoryManagerController : Controller
     {
         IRepository<ProductCategory> context;

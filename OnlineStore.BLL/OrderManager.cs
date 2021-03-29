@@ -27,13 +27,27 @@ namespace OnlineStore.BLL
                     ProductId = item.Id,
                     ProductName = item.ProductName,
                     Image = item.Image,
-                    Price = item.Price,                    
-                    Quantity = item.Quantity                    
+                    Price = item.Price,
+                    Quantity = item.Quantity
                 });
 
                 orderContext.Insert(order);
                 orderContext.Commit();
             }
+        }
+
+        public List<Order> GetOrderList()
+        {
+            return orderContext.Collection().ToList();
+        }
+        public Order GetOrder(string Id)
+        {
+            return orderContext.Find(Id);
+        }
+        public void UpdateOrder(Order updatedOrder)
+        {
+            orderContext.Update(updatedOrder);
+            orderContext.Commit();
         }
     }
 }

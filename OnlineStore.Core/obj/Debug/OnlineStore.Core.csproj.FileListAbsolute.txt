@@ -1,0 +1,6 @@
+C:\Users\user\Source\Repos\OnlineStoreWebApp\OnlineStore.Core\bin\Debug\OnlineStore.Core.dll
+C:\Users\user\Source\Repos\OnlineStoreWebApp\OnlineStore.Core\bin\Debug\OnlineStore.Core.pdb
+C:\Users\user\Source\Repos\OnlineStoreWebApp\OnlineStore.Core\obj\Debug\OnlineStore.Core.csprojAssemblyReference.cache
+C:\Users\user\Source\Repos\OnlineStoreWebApp\OnlineStore.Core\obj\Debug\OnlineStore.Core.csproj.CoreCompileInputs.cache
+C:\Users\user\Source\Repos\OnlineStoreWebApp\OnlineStore.Core\obj\Debug\OnlineStore.Core.dll
+C:\Users\user\Source\Repos\OnlineStoreWebApp\OnlineStore.Core\obj\Debug\OnlineStore.Core.pdb
